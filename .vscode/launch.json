@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-AppRhApplication<AppRH>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.AppRH.AppRH.AppRhApplication",
+            "projectName": "AppRH",
+            "args": ""
+        }
+    ]
+}

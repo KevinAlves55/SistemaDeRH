@@ -65,7 +65,7 @@ public class EmpresaController {
 	}
 	
 	// EDITAR EMPRESA
-	@RequestMapping(value = "editar-vaga", method = RequestMethod.GET)
+	@RequestMapping("/editar-empresa")
 	public ModelAndView editarEmpresa(long codigo) {
 		
 		Empresa empresa = er.findByCodigo(codigo);
@@ -83,9 +83,20 @@ public class EmpresaController {
 		attributes.addFlashAttribute("sucessos","Empresa alterada com sucesso");
 		
 		long codigoLong = empresa.getCodigo();
-		String codigo = "" +codigoLong;
-		return "redirect:/" + codigo;
+		String codigo = "" + codigoLong;
+		return "redirect:/empresa/" + codigo;
 		
+	}
+
+	// GET que mostra os detalhes da Empresa
+	@RequestMapping("/empresa/{codigo}")
+	public ModelAndView detalhesEmpresa(@PathVariable("codigo") long codigo) {
+
+		Empresa empresa = er.findByCodigo(codigo);
+		ModelAndView mv = new ModelAndView("empresa/detalhes-empresa");
+		mv.addObject("empresa", empresa);
+
+		return mv;
 	}
 	
 }
